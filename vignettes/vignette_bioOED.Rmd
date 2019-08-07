@@ -1,10 +1,10 @@
 ---
-title: "bioOED: Optimum Experiment Design for Microbial Inactivation"
-author: "Alberto Garre, Jose Lucas Peñalver Soto, Pablo S. Fernandez, Jose A. Egea"
+title: "bioOED: Optimum Experiment Design for Microbial Inactivation. Dynamic inactivation"
+author: "Alberto Garre, Jose Lucas Peñalver-Soto, Pablo S. Fernandez, Jose A. Egea"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{bioOED_vignette}
+  %\VignetteIndexEntry{dynamic_OED}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
