@@ -6,6 +6,7 @@
 * Added functions for OED of isothermal experiments considering the detection limit.
 * NEWS.md has been corrected with the right version numbers.
 * Added a new vignette.
+* Commented parts of the vignette to avoid the creation of eSSR_report.RData. Waiting for MEIGOR to be updated.
 
 ## Version 0.1.4
 

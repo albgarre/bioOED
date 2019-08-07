@@ -211,12 +211,12 @@ The design space is defined through the inputs arguments `min_time`, `max_time`,
 The global optimization algorithm used is the MEIGO algorithm from the __MEIGOR__ package  (Egea et al., 2012). By default, a global solver with a maximum of 2000 function evaluations and the local search algorithm used is "DHC". This can be changed through the `opts` argument. For information regarding the format of this argument, refer to the help page of the *MEIGO()* function. For illustration purposes, only 500 function evaluations will be made. We recommend the user to set larger values for this argument, to ensure convergence of the optimization algorithm.
 
 ```{r}
-opts <- list(maxeval=500,local_finish="DHC")
-
-OED <- isothermal_OED("Bigelow", pars, n_points, criterion = "D",
-                      min_time = 0, max_time = 100,
-                      min_temp = 52.5, max_temp = 60,
-                      opts = opts)
+# opts <- list(maxeval=500,local_finish="DHC")
+# 
+# OED <- isothermal_OED("Bigelow", pars, n_points, criterion = "D",
+#                       min_time = 0, max_time = 100,
+#                       min_temp = 52.5, max_temp = 60,
+#                       opts = opts)
 ```
 
 The function *isothermal_OED* returns a list of class `OEDisothermal`. It contains the following entries:
@@ -232,13 +232,13 @@ The function *isothermal_OED* returns a list of class `OEDisothermal`. It contai
 The optimum design can be accessed with the `optim_design` argument:
 
 ```{r}
-OED$optim_design
+# OED$optim_design
 ```
 
 It can be easily visualized using the S3 plot method implemented for `OEDisothermal` objects:
 
 ```{r, fig.width=8}
-plot(OED)
+# plot(OED)
 ```
 
 ## OED for isothermal conditions and detection limit
@@ -265,21 +265,21 @@ limit <- 7
 Now, we call the `isothermal_OED_limit` function with the same parameters as before, including the detection limit:
 
 ```{r}
-OED_limit <- isothermal_OED_limit("Bigelow", pars, n_points, criterion = "D", limit,
-                                  min_time = 0, max_time = 100, min_temp = 95,
-                                  max_temp = 110, opts)
+# OED_limit <- isothermal_OED_limit("Bigelow", pars, n_points, criterion = "D", limit,
+#                                   min_time = 0, max_time = 100, min_temp = 95,
+#                                   max_temp = 110, opts)
 ```
 
 The object returned by *isothermal_OED_limit()* is identical to the one returned by *isothermal_OED()*. The optimal experiment design can be retrieved in the `optim_design` entry:
 
 ```{r}
-print(OED_limit$optim_design)
+# print(OED_limit$optim_design)
 ```
 
 Again, the results can be easily plotted.
 
 ```{r, fig.width=8}
-plot(OED_limit)
+# plot(OED_limit)
 ```
 
 Note that the detection limit is now added to the plot as a green line.
