@@ -69,12 +69,15 @@
 #' 
 #' set.seed(191210)
 #' 
+#' \dontrun{
 #' local_OED <- inactivation_OED("Mafart", parms, temp_profile, parms_fix,
 #'                       n_points, criteria = "E-mod", sensvar = "logN",
 #'                       optim_algorithm = "local")
 #' 
 #' print(local_OED$optim_times)
 #' plot(local_OED)
+#' }
+#' 
 #'
 inactivation_OED <- function(inactivation_model, parms, temp_profile, parms_fix,
                      n_points, criteria = "D",

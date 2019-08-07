@@ -1,4 +1,8 @@
 
+## Version 0.2.1
+
+* Wrapped every example in dontrun to avoid some issues with CRAN.
+
 ## Version 0.2.0
 
 * Added functions for sensitivity functions of isothermal experiments.

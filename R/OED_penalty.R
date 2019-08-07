@@ -137,6 +137,8 @@ objective_Emod_penalty <- function(times, sensitivities, time_min, ...) {
 #' n_points <- 5
 #' time_min <- 10
 #' 
+#' \dontrun{
+#' 
 #' ## OED with local optimization
 #' 
 #' set.seed(0123182)
@@ -159,6 +161,9 @@ objective_Emod_penalty <- function(times, sensitivities, time_min, ...) {
 #' 
 #' print(global_OED$optim_times)
 #' plot(global_OED)
+#' 
+#' }
+#' 
 #' 
 #' 
 inactivation_OED_penalty <- function(inactivation_model, parms, temp_profile, parms_fix,
