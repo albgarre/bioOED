@@ -2,8 +2,8 @@ Package: bioOED
 Type: Package
 Title: Sensitivity Analysis and Optimum Experiment Design for Microbial
     Inactivation
-Version: 0.1.4.9999
-Date: 2018-04-17
+Version: 0.2.0
+Date: 2019-08-07
 Authors@R: c(person("Alberto", "Garre", email = "garre.alberto@gmail.com", role = c("aut", "cre")),
              person("Jose Lucas", "Penalver-Soto", email = "", role = "aut"),
              person("Pablo S.", "Fernandez", email = "pablo.fernandez@upct.es", role = "aut"),
@@ -13,6 +13,7 @@ Description: Extends the bioinactivation package with functions for Sensitivity
     Analysis and Optimum Experiment Design.
 License: GPL-3
 LazyData: TRUE
+biocViews:
 Imports:
     FME (>= 1.3.2),
     bioinactivation (>= 1.1.2),
@@ -23,7 +24,9 @@ Imports:
     graphics(>= 3.3.2),
     MEIGOR (>= 1.0.0),
     rlang (>= 0.1.6),
-    tidyr (>= 0.7.2)
+    tidyr (>= 0.7.2),
+    tidyverse(>= 1.2.1),
+    tidyselect(>= 0.2.5)
 Suggests:
     knitr (>= 1.9),
     testthat (>= 0.9.1),

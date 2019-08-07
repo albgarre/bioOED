@@ -5,6 +5,7 @@
 * Added functions for OED of isothermal experiments.
 * Added functions for OED of isothermal experiments considering the detection limit.
 * NEWS.md has been corrected with the right version numbers.
+* Added a new vignette.
 
 ## Version 0.1.4
 
