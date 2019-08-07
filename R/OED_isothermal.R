@@ -30,7 +30,8 @@ detFIM <- function(x, model, pars){
 
 #' Optimal Experiment Design of isothermal inactivation
 #' 
-#' OED of microbial inactivation experiments.
+#' Calculates an Optimal Experiment for an isothermal microbial inactivation experiment
+#' considering the maximum duration of the experiment according to the detection limit.
 #' 
 #' @param model character string defining the inactivation model to use.
 #' @param pars list defining the nominal model parameters.
@@ -51,11 +52,13 @@ detFIM <- function(x, model, pars){
 #' 
 #' @examples 
 #' pars <- list(z = 4.2, D_R = 3.9, temp_ref = 55)
-#' opts <- list(maxeval=500,local_finish="DHC")
+#' opts <- list(maxeval=200,local_finish="DHC")
+#' \dontrun{
 #' OED <- isothermal_OED("Bigelow", pars, n_points = 5, criterion = "E-mod", 
 #'                       min_time = 0, max_time = 100, min_temp = 52.5, max_temp = 60, 
 #'                       opts = opts)
 #' plot(OED)
+#' }
 #'
 isothermal_OED <- function(model, pars,
                            n_points, min_time, max_time, min_temp, max_temp,

@@ -1,6 +1,9 @@
 
 #'
 #' OED of isothermal microbial inactivation with detection limit
+#' 
+#' Calculates an Optimal Experiment for an isothermal microbial inactivation experiment
+#' considering the maximum duration of the experiment according to the detection limit.
 #'
 #' @param model character string defining the inactivation model to use.
 #' @param pars list defining the nominal model parameters.
@@ -26,11 +29,13 @@
 #'
 #' @examples
 #' pars <- list(z = 4.2, D_R = 3.9, temp_ref = 55)
-#' opts <- list(maxeval=500,local_finish="DHC")
+#' opts <- list(maxeval=2000,local_finish="DHC")
+#' \dontrun{
 #' OED <- isothermal_OED_limit("Bigelow", pars, n_points = 5, criterion = "E-mod", limit = 6,
 #'                       min_time = 0, max_time = 100, min_temp = 52.5, max_temp = 60,
 #'                       opts = opts)
 #' plot(OED)
+#' }
 #'
 isothermal_OED_limit <- function(model, pars, limit,
                                  n_points, min_time, max_time, min_temp, max_temp, criterion = "D",
