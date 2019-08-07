@@ -99,18 +99,18 @@ sensitivities_Mafart <- function(exp_design, pars) {
 #' 
 #' @examples 
 #' 
+#' library("tidyverse")
 #' time_profile <- seq(0, 50, length = 20)
 #' Temp_profile <- seq(52.5,60, length = 3)
 #' 
 #' exp_design <- expand.grid(time_profile,Temp_profile) %>%
 #'   rename(times = Var1, temperature = Var2)
 #' 
-#' pars <- list(temp_crit = 55,
-#'              n = 1.5,
-#'              k_b = 0.1)
+#' pars <- list(z = 4.2, D_R = 3.9, temp_ref = 55)
 #' 
-#' s_peleg <- isothermal_sensitivities("Peleg", exp_design, pars)
-#' head(s_peleg$sensitivities)
+#' my_sensitivities <- isothermal_sensitivities("Bigelow", exp_design, pars)
+#' plot(my_sensitivities)
+#' plot(my_sensitivities, limit = 6)
 #'
 isothermal_sensitivities <- function(model, exp_design, pars) {
     
@@ -140,10 +140,25 @@ isothermal_sensitivities <- function(model, exp_design, pars) {
 #' 
 #' @export
 #'
+#'@examples
+#'
+#' library(tidyverse)
+#' time_profile <- seq(0, 50, length = 20)
+#' Temp_profile <- seq(52.5,60, length = 3)
+#' 
+#' exp_design <- expand.grid(time_profile,Temp_profile) %>%
+#'   rename(times = Var1, temperature = Var2)
+#' 
+#' pars <- list(temp_crit = 55,
+#'              n = 1.5,
+#'              k_b = 0.1)
+#' 
+#' get_isothermal_correlation("Peleg", exp_design, pars )
+#' 
+
 get_isothermal_correlation <- function(model, exp_design, pars) {
     
-    out <- isothermal_sensitivities(model, exp_design, pars) %>%
-        .$sensitivities %>%
+    out <- isothermal_sensitivities(model, exp_design, pars)$sensitivities %>%
         select(ends_with("_scaled")) %>%
         na.omit() %>%
         cor()
@@ -164,35 +179,28 @@ get_isothermal_correlation <- function(model, exp_design, pars) {
 #' 
 #' @export
 #' 
+#' @examples 
+#' 
+#' library("dplyr")
+#' time_profile <- seq(0, 50, length = 20)
+#' Temp_profile <- seq(52.5,60, length = 3)
+#' 
+#' exp_design <- expand.grid(time_profile,Temp_profile) %>%
+#'   rename(times = Var1, temperature = Var2)
+#' 
+#' pars <- list(temp_crit = 55,
+#'              n = 1.5,
+#'              k_b = 0.1)
+#' 
+#' calculate_isothermal_FIM("Peleg", exp_design, pars )
+
 calculate_isothermal_FIM <- function(model, exp_design, pars) {
     
-    sens <- isothermal_sensitivities(model, exp_design, pars) %>%
-        .$sensitivities %>%
-        select(-ends_with("_scaled"), -times, -temperature) %>%
+    sens <- isothermal_sensitivities(model, exp_design, pars)$sensitivities %>%
+        select(-ends_with("_scaled"), -"times", -"temperature") %>%
         as.matrix()
     
     t(sens) %*% sens
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
