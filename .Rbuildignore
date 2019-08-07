@@ -1,0 +1,8 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+README.md
+README.Rmd
+cran-comments.md
+desktop.ini
+^CRAN-RELEASE$
+^.*RData$
